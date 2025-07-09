@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>Specjalista CCTV – [Twoje Imię]</title>
+ <meta name="description" content="Certyfikowany instalator CCTV oferujący profesjonalne doradztwo, dostawę i montaż na terenie Wrocławia.">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <style>
+  *{box-sizing:border-box;margin:0}
+  body{font:16px/1.55 system-ui,Arial,Helvetica,sans-serif;color:#222;background:#f9f9f9;scroll-behavior:smooth}
+  header{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:1rem 5vw;background:#101820;color:#fff;z-index:10}
+  header img{height:40px}
+  header nav a{margin-left:2rem;color:#fff;text-decoration:none}
+  section{padding:6rem 5vw}
+  #hero{min-height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:url("img/hero.webp") center/cover no-repeat;color:#fff;text-shadow:0 2px 4px #000}
+  #hero h1{font-size:clamp(2rem,4vw+1rem,4rem);margin-bottom:1rem}
+  #hero p{max-width:600px;text-align:center}
+  #about,#contact{background:#fff}
+  #about h2,#contact h2{margin-bottom:1rem;font-size:2rem;color:#101820}
+  #gallery{background:#efefef;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+  #gallery img{width:100%;height:220px;object-fit:cover;border-radius:.25rem}
+  form{display:grid;gap:1rem;max-width:480px;margin:0 auto}
+  input,textarea,button{padding:.75rem;border:1px solid #ccc;border-radius:.25rem;font:inherit}
+  button{background:#ff9000;border:none;cursor:pointer;font-weight:600}
+  footer{padding:2rem 5vw;text-align:center;background:#101820;color:#fff;font-size:.9rem}
+  @media(min-width:768px){body{font-size:18px}}
+ </style>
+</head>
+<body>
+ <header>
+  <img src="img/logo.svg" alt="Logo">
+  <nav>
+   <a href="#about">O&nbsp;mnie</a>
+   <a href="#gallery">Galeria</a>
+   <a href="#contact">Kontakt</a>
+  </nav>
+ </header>
+
+ <section id="hero">
+  <h1>Zabezpiecz każdy kąt</h1>
+  <p>Kamery CCTV w wysokiej rozdzielczości, fachowy montaż, instalacja już następnego dnia we&nbsp;Wrocławiu.</p>
+ </section>
+
+ <section id="about">
+  <h2>O&nbsp;mnie</h2>
+  <p>Jestem [Imię], licencjonowany technik systemów zabezpieczeń (licencja Polska nr&nbsp;XYZ-123) z&nbsp;ośmioletnim doświadczeniem i&nbsp;ponad&nbsp;300 ukończonymi instalacjami w&nbsp;domach, sklepach i&nbsp;zakładach przemysłowych. Specjalizuję się w&nbsp;kamerach&nbsp;IP do&nbsp;8&nbsp;MP, zdalnym monitoringu oraz konserwacji systemów.</p>
+ </section>
+
+ <section id="gallery">
+  <img src="img/photo1.webp" alt="Kamera zamontowana na ceglanej ścianie">
+  <img src="img/photo2.webp" alt="Szafa rack z rejestratorem NVR i panelem krosowym">
+  <img src="img/photo3.webp" alt="Podgląd na żywo na smartfonie">
+ </section>
+
+ <section id="contact">
+  <h2>Bezpłatna wycena</h2>
+  <form action="https://formspree.io/f/yourID" method="POST">
+   <input type="text" name="name" placeholder="Imię i nazwisko" required>
+   <input type="email" name="_replyto" placeholder="Email" required>
+   <textarea name="message" rows="4" placeholder="Szczegóły projektu" required></textarea>
+   <button type="submit">Wyślij</button>
+  </form>
+ </section>
+
+ <footer>©2025 Krzysztof Buszewski • tel.&nbsp;+48&nbsp;785&nbsp;561&nbsp;098 • Wrocław</footer>
+
+ <script>
+  // highlight current nav link
+  const links=document.querySelectorAll('header nav a');
+  const opts={rootMargin:'-40% 0px -50% 0px',threshold:0};
+  const io=new IntersectionObserver(entries=>{
+   entries.forEach(e=>{
+    if(e.isIntersecting){
+     links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));
+    }
+   });
+  },opts);
+  document.querySelectorAll('section').forEach(s=>io.observe(s));
+ </script>
+</body>
+</html>
