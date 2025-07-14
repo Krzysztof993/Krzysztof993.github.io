@@ -1,82 +1,248 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width,initial-scale=1">
- <title>Specjalista CCTV – [Twoje Imię]</title>
- <meta name="description" content="Certyfikowany instalator CCTV oferujący profesjonalne doradztwo, dostawę i montaż na terenie Wrocławia.">
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <style>
-  *{box-sizing:border-box;margin:0}
-  body{font:16px/1.55 system-ui,Arial,Helvetica,sans-serif;color:#222;background:#f9f9f9;scroll-behavior:smooth}
-  header{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:1rem 5vw;background:#101820;color:#fff;z-index:10}
-  header img{height:40px}
-  header nav a{margin-left:2rem;color:#fff;text-decoration:none}
-  section{padding:6rem 5vw}
-  #hero{min-height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:url("img/hero.webp") center/cover no-repeat;color:#fff;text-shadow:0 2px 4px #000}
-  #hero h1{font-size:clamp(2rem,4vw+1rem,4rem);margin-bottom:1rem}
-  #hero p{max-width:600px;text-align:center}
-  #about,#contact{background:#fff}
-  #about h2,#contact h2{margin-bottom:1rem;font-size:2rem;color:#101820}
-  #gallery{background:#efefef;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
-  #gallery img{width:100%;height:220px;object-fit:cover;border-radius:.25rem}
-  form{display:grid;gap:1rem;max-width:480px;margin:0 auto}
-  input,textarea,button{padding:.75rem;border:1px solid #ccc;border-radius:.25rem;font:inherit}
-  button{background:#ff9000;border:none;cursor:pointer;font-weight:600}
-  footer{padding:2rem 5vw;text-align:center;background:#101820;color:#fff;font-size:.9rem}
-  @media(min-width:768px){body{font-size:18px}}
- </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monitoring CCTV – Sprzedaż, Montaż, Projektowanie</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      position: relative;
+      height: 300px;
+      background-color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+
+    header h1 {
+      z-index: 1;
+      font-size: 32px;
+      padding: 0 20px;
+    }
+
+    nav {
+      background: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .phone {
+      color: #fff;
+      margin-left: auto;
+      margin-right: 15px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    h2 {
+      color: #004080;
+    }
+
+    footer {
+      background: #0a0a0a;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .cta {
+      background: #004080;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+
+    .cta a {
+      color: white;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 30px auto 0;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .slide {
+      min-width: 300px;
+      user-select: none;
+    }
+
+    .slide img {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 64, 128, 0.7);
+      border: none;
+      color: white;
+      font-size: 24px;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 50%;
+      user-select: none;
+    }
+
+    .slider-btn:hover {
+      background: #004080;
+    }
+
+    .prev-btn {
+      left: 10px;
+    }
+
+    .next-btn {
+      right: 10px;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .phone {
+        margin: 10px 0 0 0;
+      }
+    }
+  </style>
 </head>
 <body>
- <header>
-  <img src="img/logo.svg" alt="Logo">
-  <nav>
-   <a href="#about">O&nbsp;mnie</a>
-   <a href="#gallery">Galeria</a>
-   <a href="#contact">Kontakt</a>
-  </nav>
- </header>
 
- <section id="hero">
-  <h1>Zabezpiecz każdy kąt</h1>
-  <p>Kamery CCTV w wysokiej rozdzielczości, fachowy montaż, instalacja już następnego dnia we&nbsp;Wrocławiu.</p>
- </section>
+<header>
+  <h1>Monitoring CCTV – Sprzedaż, Montaż, Projektowanie</h1>
+</header>
 
- <section id="about">
-  <h2>O&nbsp;mnie</h2>
-  <p>Jestem [Imię], licencjonowany technik systemów zabezpieczeń (licencja Polska nr&nbsp;XYZ-123) z&nbsp;ośmioletnim doświadczeniem i&nbsp;ponad&nbsp;300 ukończonymi instalacjami w&nbsp;domach, sklepach i&nbsp;zakładach przemysłowych. Specjalizuję się w&nbsp;kamerach&nbsp;IP do&nbsp;8&nbsp;MP, zdalnym monitoringu oraz konserwacji systemów.</p>
- </section>
+<nav>
+  <a href="#oferta">Oferta</a>
+  <a href="#omnie">O mnie</a>
+  <a href="#kontakt">Kontakt</a>
+  <div class="phone">📞 785 561 098</div>
+</nav>
 
- <section id="gallery">
-  <img src="img/photo1.webp" alt="Kamera zamontowana na ceglanej ścianie">
-  <img src="img/photo2.webp" alt="Szafa rack z rejestratorem NVR i panelem krosowym">
-  <img src="img/photo3.webp" alt="Podgląd na żywo na smartfonie">
- </section>
+<section id="oferta">
+  <h2>Kompleksowe systemy CCTV</h2>
+  <p>Zadbaj o bezpieczeństwo swojego domu, firmy, sklepu lub magazynu. Oferuję <strong>profesjonalne systemy monitoringu wizyjnego (CCTV)</strong> dopasowane do Twoich potrzeb i budżetu.</p>
 
- <section id="contact">
-  <h2>Bezpłatna wycena</h2>
-  <form action="https://formspree.io/f/yourID" method="POST">
-   <input type="text" name="name" placeholder="Imię i nazwisko" required>
-   <input type="email" name="_replyto" placeholder="Email" required>
-   <textarea name="message" rows="4" placeholder="Szczegóły projektu" required></textarea>
-   <button type="submit">Wyślij</button>
-  </form>
- </section>
+  <h3>🔹 Sprzedaż systemów CCTV:</h3>
+  <ul>
+    <li>Kamery IP i analogowe BCS</li>
+    <li>Rejestratory DVR / NVR</li>
+    <li>Dyski twarde do archiwizacji nagrań</li>
+    <li>Akcesoria: zasilacze, przewody, obudowy</li>
+  </ul>
 
- <footer>©2025 Krzysztof Buszewski • tel.&nbsp;+48&nbsp;785&nbsp;561&nbsp;098 • Wrocław</footer>
+  <h3>🔹 Montaż monitoringu:</h3>
+  <ul>
+    <li>Profesjonalna instalacja kamer</li>
+    <li>Konfiguracja podglądu online na telefonie i komputerze</li>
+    <li>Estetyczne prowadzenie okablowania</li>
+  </ul>
 
- <script>
-  // highlight current nav link
-  const links=document.querySelectorAll('header nav a');
-  const opts={rootMargin:'-40% 0px -50% 0px',threshold:0};
-  const io=new IntersectionObserver(entries=>{
-   entries.forEach(e=>{
-    if(e.isIntersecting){
-     links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));
-    }
-   });
-  },opts);
-  document.querySelectorAll('section').forEach(s=>io.observe(s));
- </script>
+  <h3>🔹 Projektowanie systemów:</h3>
+  <ul>
+    <li>Wizja lokalna i wycena</li>
+    <li>Dobór sprzętu do konkretnego obiektu</li>
+    <li>Pełne doradztwo techniczne</li>
+  </ul>
+
+  <p><strong>Wszystkie systemy umożliwiają zdalny podgląd w aplikacji mobilnej</strong> – masz kontrolę 24/7 z dowolnego miejsca!</p>
+
+</section>
+
+<section id="omnie">
+  <h2>O mnie</h2>
+  <p>Cześć nazywam sie <strong>Krzysztof Buszewski</strong> i na co dzień zajmuję się doradztwem, sprzedażą i montażem systemów monitoringu CCTV.
+
+Pomagam klientom dobrać odpowiedni sprzęt – kamery, rejestratory, okablowanie – a następnie projektuję i wykonuję całą instalację. Każdy projekt dopasowuję do konkretnego miejsca i potrzeb – bez gotowców i bez naciągania.
+
+Działam głównie na terenie Wrocławia i okolic, obsługując zarówno domy prywatne, jak i firmy czy sklepy. Jeśli myślisz o monitoringu – odezwij się. Przyjadę, doradzę, zrobię darmową wycenę i wszystko dokładnie wyjaśnię.
+</section>
+
+<section id="kontakt">
+  <h2>Kontakt</h2>
+  <p>Masz pytania lub chcesz umówić się na wycenę?</p>
+  <p><strong>Telefon:</strong> 785 561 098</p>
+  <p><strong>Obsługiwany obszar:</strong> Wrocław i Okolice</p>
+  <p><strong>Godziny pracy:</strong> pon–pt 8:00–16:00</p>
+
+  
+</section>
+
+<footer>
+  &copy; 2025 Krzysztof Buszewski – Systemy CCTV | Wszelkie prawa zastrzeżone
+</footer>
+
+<script>
+  const track = document.querySelector('.slider-track');
+  const slides = Array.from(track.children);
+  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn');
+
+  let currentIndex = 0;
+
+  function updateSliderPosition() {
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : slides.length - 1;
+    updateSliderPosition();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = currentIndex < slides.length - 1 ? currentIndex + 1 : 0;
+    updateSliderPosition();
+  });
+
+  window.addEventListener('resize', updateSliderPosition);
+</script>
+
 </body>
 </html>
